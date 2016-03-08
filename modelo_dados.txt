@@ -1,0 +1,53 @@
+-- Definição do schema de dados utilizado pelo mongoose
+-- Verificar necessidade de redundância nos dados dos relacionamentos
+
+
+Questionario{
+
+  _id: ObjectId,
+  questoes: [
+      {
+      _id : ObjectId,
+      enunciado: String,
+      opcoes: [{idOpcao:Number, descricao: String}],
+      respostaCorreta: {idOpcao: Number, descricao: String},
+      pontuacao: Number
+      }
+   ],
+   sala : String,
+   senha: String
+
+}
+
+SlotQuestionario{
+
+  _id: ObjectId,
+  questionarios: [ObjectId], //id dos questionarios
+  slotHorario: Number //slot 1,2,3,4,5, ...
+}
+
+Resposta{
+
+  _id: ObjectId,
+  usuario: String, //número inscrição
+  respostaQuestionario: {
+    slotQuestionario: ObjectId,
+    respostas: [
+      {
+        idQuestao: ObjectId,
+        resposta: Number, //idOpção
+        correta: boolean
+      }
+    ]
+  },
+  pontuacao: Number
+}
+
+Usuario{
+
+  idInscricao: String, //valor único, pode ser utilizado para o _id
+  nome: String,
+  email: String,
+  respostasQuestionarios: [ObjectId] //id da coleção Resposta
+
+}
