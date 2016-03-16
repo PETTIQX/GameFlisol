@@ -1,0 +1,26 @@
+{
+  "name": "game_flisol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandrooliveira1501/GameFlisol.git"
+  },
+  "author": "Alexsandro and Italos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandrooliveira1501/GameFlisol/issues"
+  },
+  "homepage": "https://github.com/sandrooliveira1501/GameFlisol#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.7",
+    "morgan": "^1.7.0"
+  }
+}
