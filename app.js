@@ -7,15 +7,12 @@ var express = require('express')
 var logger = require('morgan')
 var router = require('./routes')
 var bodyParser = require('body-parser')
-var methodOverride = require('method-override')
 
 var app = express();
 
 // Configuration
 app.use(bodyParser.json())
 
-// override with POST having ?_method=DELETE
-app.use(methodOverride('_method'))
 //TODO configurar arquivos estáticos para a versão web
 //  app.use(express.static(__dirname + '/public'))
 

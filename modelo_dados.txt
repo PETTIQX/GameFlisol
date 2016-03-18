@@ -43,7 +43,7 @@ Resposta{
   pontuacao: Number
 }
 
-Usuario{
+Participante{
 
   idInscricao: String, //valor único, pode ser utilizado para o _id
   nome: String,

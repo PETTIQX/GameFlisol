@@ -1,13 +1,8 @@
 var express = require('express')
+var auth = require('./auth')
 var router = express.Router()
 
-//TODO configurar as rotas
-//router.use('/private', require('./private'))
-
-router.get('/', function(req,res,next){
-
-    res.send("ok")
-
-})
+router.use('/public', require('./public'))
+router.use('/private', auth, require('./private'))
 
 module.exports = router
