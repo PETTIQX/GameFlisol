@@ -45,7 +45,7 @@ Resposta{
 
 Participante{
 
-  idInscricao: String, //valor único, pode ser utilizado para o _id
+  _id: String, //valor único, pode ser utilizado para o _id
   nome: String,
   email: String,
   respostasQuestionarios: [ObjectId] //id da coleção Resposta

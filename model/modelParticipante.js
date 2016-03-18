@@ -1,7 +1,7 @@
-var mongoose = require('../db.js');
+var mongoose = require('../db.js')
 var config = require('../config')
-var Schema = mongoose.Schema;
-ObjectId = Schema.ObjectId;
+var Schema = mongoose.Schema
+ObjectId = Schema.ObjectId
 
 var constants = {
     MODEL_NAME: 'Participante',
@@ -18,7 +18,7 @@ var schema = Schema({
 
 schema.statics.authenticateUser = function(numeroInscricao,cb){
 
-    var query = {_id:numeroInscricao, autenticado: false    }
+    var query = {_id:numeroInscricao, autenticado: false}
 
     this.findOne(query).
         exec(function(err, participante){
