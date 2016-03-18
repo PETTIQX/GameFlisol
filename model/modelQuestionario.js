@@ -11,7 +11,7 @@ var schema = Schema({
 
     questoes: [
         {
-            _id: {type:String, defaut: mongoose.Types.ObjectId()},
+            _id: {type:ObjectId, default: mongoose.Types.ObjectId()},
             enunciado: String,
             opcoes: [{idOpcao:Number, descricao: String}],
             respostaCorreta: {idOpcao: Number, descricao: String},
