@@ -1,0 +1,18 @@
+-- Método URL Paramêtros Retorno
+
+POST /public/authenticate ({numeroInscricao: String}) token do participante
+
+GET /public/rankingGeral retorna ranking
+
+todas as rotas /private/ devem passar no Header o atributo X-Auth com o token
+
+GET /private/questionario (idQuestionario) retorna json com objeto questionário
+
+POST /private/questionario/query (questionario) retorna questionarios que correspondem com a query
+
+GET /private/slot (idSlot) retorna json com objeto questionário
+
+POST /private/slot/query (slot) retorna questionarios que correspondem com a query
+
+GET /private/slot/buscaPorHorario (slotHorario) retorna slot por horário
+

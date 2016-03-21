@@ -23,7 +23,7 @@ router.get('/', function(req,res,next){
 })
 
 
-router.post('/', function(req,res,next){
+router.post('/query', function(req,res,next){
 
     //TODO verificar se req.body está vazio
 
@@ -40,5 +40,6 @@ router.post('/', function(req,res,next){
     })
 
 })
+
 
 module.exports = router

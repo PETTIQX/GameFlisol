@@ -39,7 +39,7 @@ router.post('/rankingGeral', function(req,res,next){
 
     //TODO
 
-    res.sendStatus(200)
+    res.sendStatus(404)
 })
 
 module.exports = router
