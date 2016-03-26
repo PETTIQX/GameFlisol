@@ -16,3 +16,11 @@ POST /private/slot/query (slot) retorna questionarios que correspondem com a que
 
 GET /private/slot/buscaPorHorario (slotHorario) retorna slot por horário
 
+GET /private/resposta/ retorna lista de respostas do usuário
+
+todo retornar nome participante
+GET /public/rankingGeral retorna lista com ranking geral
+
+GET /private/resposta/pontuacaoParticipante retorna pontuação do participante
+
+

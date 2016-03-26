@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var config = require('../../config')
 var Participante = require('../../model/modelParticipante')
+var Resposta = require('../../model/modelResposta')
 var jwt = require('jwt-simple')
 
 //TODO configurar as rotas
@@ -35,11 +36,15 @@ router.post('/authenticate', function(req,res,next){
 
 })
 
-router.post('/rankingGeral', function(req,res,next){
+router.get('/rankingGeral', function(req,res,next){
 
-    //TODO
+    Resposta.rankingGeral(function(err, ranking){
 
-    res.sendStatus(404)
+        if(err) return next(err)
+
+        return res.json(ranking)
+
+    })
 })
 
 module.exports = router
