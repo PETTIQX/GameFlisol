@@ -31,7 +31,7 @@ if('production' ==  app.get('env')){
   //todo usar middleware para tratar erros
 }
 
-var server = app.listen(3000, function(){
+var server = app.listen(6000, function(){
   console.log("Express server listening on port %d in %s mode", server.address().port, app.settings.env);
 });
 

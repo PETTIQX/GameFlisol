@@ -86,7 +86,7 @@ schema.statics.pontuacaoParticipante = function(idParticipante, cb){
 
         console.log(stats)
 
-        model.find({"_id":idParticipante}).sort({"value":-1}).exec(cb)
+        model.findOne({"_id":idParticipante}).sort({"value":-1}).exec(cb)
 
     })
 

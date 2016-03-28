@@ -49,4 +49,11 @@ router.get('/pontuacaoParticipante', function(req,res,next){
 
 })
 
+router.post('/adicionarResposta', function(req,res,next){
+
+
+
+    return res.sendStatus(400)
+})
+
 module.exports = router
