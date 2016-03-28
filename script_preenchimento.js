@@ -24,6 +24,25 @@ questionario.save(function(err, questionario){
     console.log(questionario)
 
     idQuestionario = questionario._id;
+    console.log("Questionario teste " + idQuestionario)
+
+    var Slot = require('./model/modelSlotQuestionario')
+
+    var slot = new Slot({
+        questionarios: [{idQuestionario : idQuestionario, sala: questionario.sala}],
+        slotHorario: 1
+    })
+
+    console.log(idQuestionario)
+
+    slot.save(function(err, slot){
+
+        console.log(err)
+
+        console.log(slot)
+
+    })
+
 })
 
 var Participante = require('./model/modelParticipante')
@@ -43,17 +62,4 @@ participante.save(function(err, participante){
 
 })
 
-var Slot = require('./model/modelSlotQuestionario')
-
-var slot = new Slot({
-    questionarios: [idQuestionario],
-    slotHorario: 1
-})
-
-slot.save(function(err, slot){
-
-    console.log(err)
-
-    console.log(slot)
-
-})
+return;

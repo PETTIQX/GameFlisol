@@ -2,7 +2,7 @@
 
 (function(){
     var mongoose = require('mongoose')
-    mongoose.set('debug', true);
+    //mongoose.set('debug', true);
 
     //exportar conexão para uma constante
     mongoose.connect('mongodb://localhost/gameflisol', function () {

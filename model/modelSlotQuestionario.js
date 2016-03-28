@@ -8,7 +8,7 @@ var constants = {
 }
 
 var schema = Schema({
-    questionarios: [{idQuestionario : ObjectId, nome: String}],
+    questionarios: [{idQuestionario : ObjectId, sala: String}],
     slotHorario: Number
 }, {collection: constants.COLLECTION_NAME})
 
