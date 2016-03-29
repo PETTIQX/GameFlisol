@@ -13,7 +13,8 @@ var schema = Schema({
     _id : {type:String, required:true},
     nome: {type:String, required:true},
     email: {type:String, required:true},
-    autenticado: Boolean
+    autenticado: Boolean,
+    slotsRespondidos: [Number]
 }, {collection: constants.COLLECTION_NAME})
 
 schema.statics.authenticateUser = function(numeroInscricao,cb){

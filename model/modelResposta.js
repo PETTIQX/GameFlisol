@@ -8,9 +8,9 @@ var constants = {
 }
 
 var schema = Schema({
-    participante: String, //número inscrição
+    participante: {type:String, required:true}, //número inscrição
     respostaQuestionario: {
-        questionario: ObjectId,
+        questionario: {type:ObjectId, required:true},
         respostas: [
             {
                 idQuestao: ObjectId,

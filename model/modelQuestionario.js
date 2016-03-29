@@ -19,7 +19,8 @@ var schema = Schema({
         }
     ],
     sala : String,
-    senha: String
+    senha: String,
+    slotHorario: [Number]
 }, {collection: constants.COLLECTION_NAME})
 
 var Questionario = mongoose.model(constants.MODEL_NAME, schema)

@@ -11,7 +11,8 @@ var questionario = new Questionario({
         }
     ],
     sala : "Oficina 1",
-    senha: "senhaoficina1"
+    senha: "senhaoficina1",
+    slotHorario: [1]
 
 })
 
@@ -51,7 +52,8 @@ var participante = new Participante({
     _id : "1234",
     nome: "Jordy Garanhão",
     email: "jordy_das_novinha@gmail.com",
-    autenticado: false
+    autenticado: false,
+    slotsRespondidos:[]
 })
 
 participante.save(function(err, participante){
