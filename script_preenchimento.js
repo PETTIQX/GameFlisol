@@ -15,7 +15,7 @@ var questionario = new Questionario({
     slotHorario: [1]
 
 })
-x
+
 var idQuestionario;
 
 questionario.save(function(err, questionario){
