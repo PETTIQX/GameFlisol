@@ -15,7 +15,7 @@ var questionario = new Questionario({
     slotHorario: [1]
 
 })
-
+x
 var idQuestionario;
 
 questionario.save(function(err, questionario){
@@ -30,7 +30,7 @@ questionario.save(function(err, questionario){
     var Slot = require('./model/modelSlotQuestionario')
 
     var slot = new Slot({
-        questionarios: [{idQuestionario : idQuestionario, sala: questionario.sala}],
+        questionarios: [idQuestionario],
         slotHorario: 1
     })
 
