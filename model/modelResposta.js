@@ -15,7 +15,8 @@ var schema = Schema({
             {
                 idQuestao: ObjectId,
                 resposta: Number, //idOpção
-                correta: Boolean
+                correta: Boolean,
+                tempo: Number
             }
         ]
     }
@@ -31,32 +32,54 @@ schema.statics.buscarRespostaPorUsuario = function(idParticipante, cb){
 
 schema.statics.rankingGeral = function(cb){
 
-    var o = {}
-    o.map = function(){
-        for(var idx = 0; idx < this.respostaQuestionario.respostas.length; idx++){
-            var resposta = this.respostaQuestionario.respostas[idx]
-            if(resposta.correta){
-                var key = this.participante
-                var value = 1
-                emit(key, value)
+    console.log("Update mapreduce: " + global.updateMapReduce);
+
+    if(global.updateMapReduce || !global.mapReduce) {
+        var o = {}
+        o.map = function () {
+            for (var idx = 0; idx < this.respostaQuestionario.respostas.length; idx++) {
+                var resposta = this.respostaQuestionario.respostas[idx]
+                if (resposta.correta) {
+                    var key = this.participante
+                    var value = {pontuacao: 1, tempo: resposta.tempo}
+                    emit(key, value)
+                }
             }
         }
+        o.reduce = function (key, values) {
+            var tempo = 0
+            var pontuacao = 0
+            for (var i = 0; i < values.length(); i++) {
+                pontuacao += values[i].pontuacao
+                tempo += values[i].tempo
+            }
+            return {pontuacao: pontuacao, tempo: tempo}
+        }
+        o.out = {replace: 'rankingGeral'}
+        o.verbose = true
+
+        this.mapReduce(o, function (err, model, stats) {
+
+            if (err) return cb(err)
+
+            console.log(stats)
+
+            //console.log(model)
+
+            global.mapReduce = model
+            global.updateMapReduce = false
+
+            model.find().sort({"value.pontuacao": -1, "value.tempo": 1}).exec(cb)
+
+        })
+    }else{
+
+        console.log("Using cache")
+
+        global.mapReduce.find().sort({"value.pontuacao": -1, "value.tempo": 1}).exec(cb)
+
     }
-    o.reduce = function(key,values){
-        return Array.sum(values)
-    }
-    o.out = { replace: 'rankingGeral' }
-    o.verbose = true
 
-    this.mapReduce(o, function(err, model, stats){
-
-        if(err) return cb(err)
-
-        console.log(stats)
-
-        model.find().sort({"value":-1}).exec(cb)
-
-    })
 
 }
 

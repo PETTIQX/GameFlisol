@@ -47,4 +47,11 @@ router.get('/rankingGeral', function(req,res,next){
     })
 })
 
+router.get('/updateRanking', function(req,res,next){
+
+    global.updateMapReduce = true
+
+    return res.sendStatus(200)
+})
+
 module.exports = router

@@ -92,6 +92,7 @@ router.post('/adicionarResposta', function(req,res,next){
                     participante.save(function(err, participante){
 
                         console.log(participante)
+                        global.updateMapReduce = true
 
                         return res.sendStatus(200)
                     })
