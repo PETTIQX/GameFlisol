@@ -26,7 +26,7 @@ router.post('/authenticate', function(req,res,next){
 
             var token = jwt.encode(payload, config.secretKeyToken)
 
-            return res.json({token:token})
+            return res.json({token:token, participante:participante})
 
         }else{
             return res.sendStatus(401)
